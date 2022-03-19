@@ -103,6 +103,7 @@ public class Sequeler.Services.ActionManager : Object {
         window.headerbar.toggle_logout.begin ();
         window.headerbar.title = APP_NAME;
         window.headerbar.subtitle = null;
+        window.headerbar.get_style_context ().remove_class ("connected");
 
         if (window.main.database_schema.scroll.get_child () != null) {
             window.main.database_schema.scroll.remove (window.main.database_schema.scroll.get_child ());

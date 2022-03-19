@@ -76,6 +76,26 @@ public class Sequeler.Layouts.Main : Gtk.Paned {
 
         window.headerbar.title = _("Connected to %s").printf (cnn_manager.data["title"]);
         window.headerbar.subtitle = cnn_manager.data["username"] + "@" + host;
+        window.headerbar.get_style_context ().add_class ("connected");
+
+        var color = Gdk.RGBA ();
+        color.parse (cnn_manager.data["color"]);
+        try {
+            var style = new Gtk.CssProvider ();
+            style.load_from_data (
+                "headerbar.connected {border-bottom: 8px solid %s;}".printf (color.to_string ()),
+                -1
+            );
+            window.headerbar.get_style_context ().add_provider (
+                style,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+        } catch (Error e) {
+            debug (
+                "Internal error loading session chooser style: %s",
+                e.message
+            );
+        }
 
         database_schema.reload_schema.begin ();
     }
