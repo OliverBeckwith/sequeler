@@ -22,12 +22,12 @@ install_data(
 )
 
 install_data(
-		join_paths('assets', 'icons', 'status', 'table.svg'),
+		join_paths('assets', 'icons', 'status', 'database-table.svg'),
 		install_dir: join_paths(icons_dir , '16x16', 'status'),
 )
 
 install_data(
-		join_paths('assets', 'icons', 'status', 'table-empty.svg'),
+		join_paths('assets', 'icons', 'status', 'database-table-empty.svg'),
 		install_dir: join_paths(icons_dir , '16x16', 'status'),
 )
 

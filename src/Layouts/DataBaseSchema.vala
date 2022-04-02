@@ -318,7 +318,7 @@ public class Sequeler.Layouts.DataBaseSchema : Gtk.Grid {
                 item.badge = count.to_string ();
             }
 
-            var icon_name = count == 0 ? "table-empty" : "table";
+            var icon_name = count == 0 ? "database-table-empty" : "database-table";
             item.icon = new GLib.ThemedIcon (icon_name);
             item.edited.connect ((new_name) => {
                 if (new_name != item.name) {
